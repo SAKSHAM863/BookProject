@@ -10,6 +10,11 @@ public class Author{
 
     public Author() {
     }
+    public Author(String id, String name, Address address){
+        this.id=id;
+        this.name=name;
+        this.address=address;
+    }
 
     public String getId() {
         return id;
@@ -33,37 +38,5 @@ public class Author{
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-}
-class Address{
-    int houseNo;
-    String city;
-    String state;
-
-    public Address() {
-    }
-
-    public int getHouseNo() {
-        return houseNo;
-    }
-
-    public void setHouseNo(int houseNo) {
-        this.houseNo = houseNo;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 }

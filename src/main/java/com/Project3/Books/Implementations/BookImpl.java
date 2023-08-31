@@ -26,6 +26,8 @@ public class BookImpl implements BookRepository {
     MongoClient mongoClient;
     @Autowired
     MongoConverter converter;
+
+
     @Override
     public List<Book> findbyGenre(String gen) {
         List<Book>resultByGenre = new ArrayList<>();
@@ -70,9 +72,6 @@ public class BookImpl implements BookRepository {
                         new Document("query", Id)
                                 .append("path", "name")))));
         List<Author> authorlist = new ArrayList<>();
-//        for(Document d: result){
-//            authorlist.add(converter.read(Author.class,d));
-//        }
         result.forEach(doc -> authorlist.add(converter.read(Author.class,doc)));
         String[] authorId= new String[authorlist.size()];
         for(int i=0;i<authorlist.size();i++){
@@ -91,9 +90,7 @@ public class BookImpl implements BookRepository {
                         new Document("query", Arrays.asList(authorList))
                                 .append("path", "authorId")))));
 
-//        for(Document D: result){
-//            finalResult.add(converter.read(Book.class,D));
-//        }
+
         result.forEach(doc -> finalResult.add(converter.read(Book.class,doc)));
         return finalResult;
     }
